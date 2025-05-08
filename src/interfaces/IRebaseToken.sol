@@ -10,8 +10,9 @@ interface IRebaseToken {
      * @notice Mints new tokens to a specified address.
      * @param _to The address to receive the minted tokens.
      * @param _amount The amount of tokens to mint.
+     * @param _userInterestRate The interest rate for the user
      */
-    function mint(address _to, uint256 _amount) external;
+    function mint(address _to, uint256 _amount, uint256 _userInterestRate) external;
     /**
      * @notice Burns tokens from a specified address.
      * @param _from The address whose tokens will be burned.
@@ -22,7 +23,27 @@ interface IRebaseToken {
     /**
      * @notice Return the balance of a specified address.
      * @param _user The address whose tokens will be burned.
-     * @return The balance of the specifoed address.
+     * @return The balance of the specified address.
      */
     function balanceOf(address _user) external view returns (uint256);
+
+     /**
+     * @notice Return the interest rate value of a specified address.
+     * @param _account The address whose tokens will be burned.
+     * @return The interest value of the specified address.
+     */
+    
+    function getUserInterestRate(address _account) external view returns (uint256);
+
+    /**
+     * @notice Return the interest rate value     
+     * @return The interest value.
+     */
+    
+    function getInterestRate() external view returns (uint256);
+
+    /**
+     * @notice Grants role to mint and burn
+     */
+    function grantMintAndBurnRole(address _account) external;
 }

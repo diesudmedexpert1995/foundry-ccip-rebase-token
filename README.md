@@ -1,3 +1,8 @@
+## About project
+
+This project is example how to build a rebase token, which works different blockchain networks as 'Ethereum' and for example 'Arbitrum' e.t.c
+Developed as project for learning purposes  ['Cyfrin Updraft - Advanced Foundry'](https://updraft.cyfrin.io/courses/advanced-foundry).
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**

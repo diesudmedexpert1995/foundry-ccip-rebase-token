@@ -60,6 +60,10 @@ contract RebaseToken is ERC20, Ownable, AccessControl {
         return s_userInterestRate[_user];
     }
 
+    function getInterestRate() external view returns (uint256){
+        return s_interestRate;
+    }
+
     /**
      * @notice retrieve the actual current balance given user
      * @param  _user The address of the user to retrieve the actual balance for
@@ -74,9 +78,9 @@ contract RebaseToken is ERC20, Ownable, AccessControl {
      * @param _to The user to mint the tokens to
      * @param _amount The amount of tokens to mint
      */
-    function mint(address _to, uint256 _amount) external onlyRole(MINT_AND_BURN_ROLE){
+    function mint(address _to, uint256 _amount, uint256 _userInterestRate) external onlyRole(MINT_AND_BURN_ROLE){
         _mintAccruedInterest(_to);
-        s_userInterestRate[_to] = s_interestRate;
+        s_userInterestRate[_to] = _userInterestRate;
         _mint(_to, _amount);
     }
 

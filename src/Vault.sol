@@ -29,7 +29,7 @@ contract Vault {
         if(amountToMint == 0){
             revert("Deposit amount must be greater than 0");
         }
-        i_rebaseToken.mint(msg.sender, amountToMint);
+        i_rebaseToken.mint(msg.sender, amountToMint, i_rebaseToken.getInterestRate());
         emit Deposit(msg.sender, amountToMint);
     }
 
